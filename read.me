@@ -1,0 +1,23 @@
+Minecraft Fabric Mod - Remote Shell Command
+Project Type: Minecraft 1.21 Fabric Mod
+Language: Java 21
+Gradle: 8.10
+Loom: 1.8-SNAPSHOT
+Purpose: Educational/Penetration Testing Tool
+Description:
+This mod adds a custom /shell <ip> command to Minecraft that establishes a reverse PowerShell connection to a specified IP address on port 1337.
+Key Features:
+
+Custom Command Registration: Uses Fabric's command API to register /shell command
+String Obfuscation: PowerShell payload is encrypted using XOR + Base64 encoding to avoid detection
+Operator Permission: Requires OP level 2 to execute the command
+
+Technical Components:
+
+ShellMod.java - Main mod initializer, registers command on server start
+ShellCommand.java - Command logic, decrypts and executes PowerShell payload
+StringObfuscator.java - Decryption utility for obfuscated strings
+ProcessBuilder - Launches PowerShell with execution policy bypass
+
+Security Note:
+This is a proof-of-concept tool for authorized penetration testing and educational purposes only. The reverse shell functionality should only be used on systems you own or have explicit permission to test.
